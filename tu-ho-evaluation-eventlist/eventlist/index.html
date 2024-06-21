@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event List</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <main id="event-list-app">
+      <header>
+        <h1 class="app-title">Event List App</h1>
+      </header>
+
+      <!-- <form id="add-event-list-form" class="event-form">
+        <label class="add-event-list-form-item" for="event-name">eventName</label>
+        <input id="event-name" type="text" required/>
+        <br />
+
+        <label class="add-event-list-form-item" for="start-date">startDate</label>
+        <input id="start-date" type="date" required/>
+        <br />
+
+        <label class="add-event-list-form-item" for="end-date">endDate</label>
+        <input id="end-date" type="date" required/>
+        <br /><br />
+
+        <button type="submit" id="add-event-btn" class="btn btn-primary">Add</button>
+      </form> -->
+      <br><br>
+
+      <!-- <form id="update-event-list-form" class="event-form">
+        <label class="update-event-list-form-item" for="update-event-name">eventName</label>
+        <input id="update-event-name" type="text"/>
+        <br />
+
+        <label class="update-event-list-form-item" for="update-start-date">startDate</label>
+        <input id="update-start-date" type="date"/>
+        <br />
+
+        <label class="update-event-list-form-item" for="update-end-date">endDate</label>
+        <input id="update-end-date" type="date"/>
+        <br /><br />
+
+        <button type="submit" id="update-event-btn" class="btn btn-primary">Update</button>
+      </form> -->
+      <br><br>
+      <button id="add-btn" class="btn btn-primary">Add new event</button>
+
+      <div id="event-list" class="event-list">
+        <!-- <div class="event-list-item">
+            <div class="event-list-item__event-name">My title</div>
+            <div class="event-list-item__start-date">My content</div>
+            <div class="event-list-item__end-date">My date</div>
+            <button id="btn-edit" class="btn btn-primary">Edit</button>
+            <button id="btn-delete" class="btn btn-secondary">Delete</button>
+        </div> -->
+        <table id="event-list-table">
+            <tr>
+                <th>Event Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Action</th>
+            </tr>
+            <!-- sample -->
+            <!-- <tr>
+                <td>My title</td>
+                <td>My content</td>
+                <td>My date</td>
+                <td>
+                    <button class="btn btn-primary">Edit</button>
+                    <button class="btn btn-secondary">Delete</button>
+                </td>
+            </tr> -->
+            <tr id="input-field" class="input-field hidden">
+                <td><input id="event-name" type="text" placeholder="Event Name"></td>
+                <td><input id="start-date" type="date" placeholder="Start Date"></td>
+                <td><input id="end-date" type="date" placeholder="End Date"></td>
+                <td>
+                    <button id="save-btn" class="btn btn-primary">Save</button>
+                    <button id="cancel-btn"  class="btn btn-secondary">Cancel</button>
+                </td>
+            </tr>
+
+            <tr id="update-input-field" class="update-input-field hidden">
+                <td><input id="update-event-name" type="text" placeholder="Event Name"></td>
+                <td><input id="update-start-date" type="date" placeholder="Start Date"></td>
+                <td><input id="update-end-date" type="date" placeholder="End Date"></td>
+                <td>
+                    <button id="update-btn" class="btn btn-primary">Update</button>
+                    <button id="cancel-update-btn"  class="btn btn-secondary">Cancel</button>
+                </td>
+            </tr>
+            
+        </table>
+   
+      </div>
+
+      <footer>
+
+      </footer>
+    </main>
+
+    <script src="./api/eventlistAPI.js"></script>
+    <script src="./features/eventlist/eventlistController.js"></script>
+    <script src="./features/eventlist/eventlistModel.js"></script>
+    <script src="./features/eventlist/eventlistView.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
