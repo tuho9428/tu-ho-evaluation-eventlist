@@ -104,10 +104,8 @@ class EventView {
 
   // show add InputFields
   showInputFields() {
-    const inputFields = document.querySelectorAll(".input-field");
-    inputFields.forEach((field) => {
-      field.classList.toggle("hidden");
-    });
+    const inputField = document.getElementById("input-field");
+    inputField.classList.toggle("hidden");
   }
 
   // cancel add event
