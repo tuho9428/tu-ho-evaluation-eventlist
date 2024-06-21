@@ -102,18 +102,20 @@ class EventView {
     }
   }
 
+  // show add InputFields
   showInputFields() {
     const inputFields = document.querySelectorAll(".input-field");
-
     inputFields.forEach((field) => {
       field.classList.toggle("hidden");
     });
   }
 
+  // cancel add event
   hideInputFields() {
     const inputField = document.getElementById("input-field");
     inputField.classList.add("hidden");
   }
+
 
   showUpdateInputFields() {
     const inputField = document.getElementById("update-input-field");
@@ -121,7 +123,10 @@ class EventView {
   }
 
   cancelUpdateEvent() {
-    const inputField = document.getElementById("update-input-field");
-    inputField.classList.add("hidden");
-  }
+    const inputFields = document.querySelectorAll(".update-input-field");
+    inputFields.forEach((field) => {
+      field.classList.toggle("hidden");
+    });
+}
+
 }

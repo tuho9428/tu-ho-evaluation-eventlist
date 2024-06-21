@@ -46,6 +46,7 @@ class EventController {
         this.#model.addEvent(_newEvent);
         this.#view.renderEventElement(_newEvent);
       });
+      this.#view.hideInputFields();
     });
   }
 
@@ -120,12 +121,19 @@ class EventController {
     });
   }
 
-  // cancel update Event
-  setUpCancelUpdateEvent() {
-    this.#view.cancelUpdateBtn.addEventListener("click", (e) => {
-      console.log(e.target.classList);
-      e.preventDefault();
-      this.#view.cancelUpdateEvent();
-    });
-  }
+  // // cancel update Event
+  // setUpCancelUpdateEvent() {
+  //   this.#view.cancelUpdateBtn.addEventListener("click", (e) => {
+  //     e.preventDefault();
+  //     this.#view.cancelUpdateEvent();
+  //   });
+  // }
+
+    // cancel update Event
+    setUpCancelUpdateEvent() {
+      this.#view.cancelUpdateBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        this.#view.cancelUpdateEvent();
+      });
+    }
 }
