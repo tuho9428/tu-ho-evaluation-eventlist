@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Event List</title>
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <main id="event-list-app">
@@ -14,44 +14,76 @@
       </header>
 
       <button id="add-btn" class="btn btn-primary">Add new event</button>
-      <br><br>
+      <br /><br />
 
       <div id="event-list" class="event-list">
-
         <table id="event-list-table">
-            <tr>
-                <th>Event Name</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Action</th>
-            </tr>
-            <tr id="input-field" class="input-field hidden">
-                <td><input id="event-name" type="text" placeholder="Event Name" required></td>
-                <td><input id="start-date" type="date" placeholder="Start Date" required></td>
-                <td><input id="end-date" type="date" placeholder="End Date" required></td>
-                <td>
-                    <button id="save-btn" class="btn btn-primary">Save</button>
-                    <button id="cancel-btn"  class="btn btn-secondary">Cancel</button>
-                </td>
-            </tr>
+          <tr>
+            <th>Event Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Action</th>
+          </tr>
+          <tr id="input-field" class="input-field hidden">
+            <td>
+              <input
+                id="event-name"
+                type="text"
+                placeholder="Event Name"
+                required
+              />
+            </td>
+            <td>
+              <input
+                id="start-date"
+                type="date"
+                placeholder="Start Date"
+                required
+              />
+            </td>
+            <td>
+              <input
+                id="end-date"
+                type="date"
+                placeholder="End Date"
+                required
+              />
+            </td>
+            <td>
+              <button id="save-btn" class="btn btn-primary">Save</button>
+              <button id="cancel-btn" class="btn btn-secondary">Cancel</button>
+            </td>
+          </tr>
 
-            <tr id="update-input-field" class="update-input-field hidden">
-                <td><input id="update-event-name" type="text" placeholder="Event Name"></td>
-                <td><input id="update-start-date" type="date" placeholder="Start Date"></td>
-                <td><input id="update-end-date" type="date" placeholder="End Date"></td>
-                <td>
-                    <button id="update-btn" class="btn btn-primary">Update</button>
-                    <button id="cancel-update-btn"  class="btn btn-secondary">Cancel Update</button>
-                </td>
-            </tr>
-            
+          <tr id="update-input-field" class="update-input-field hidden">
+            <td>
+              <input
+                id="update-event-name"
+                type="text"
+                placeholder="Event Name"
+              />
+            </td>
+            <td>
+              <input
+                id="update-start-date"
+                type="date"
+                placeholder="Start Date"
+              />
+            </td>
+            <td>
+              <input id="update-end-date" type="date" placeholder="End Date" />
+            </td>
+            <td>
+              <button id="update-btn" class="btn btn-primary">Update</button>
+              <button id="cancel-update-btn" class="btn btn-secondary">
+                Cancel Update
+              </button>
+            </td>
+          </tr>
         </table>
-   
       </div>
 
-      <footer>
-
-      </footer>
+      <footer></footer>
     </main>
 
     <script src="./api/eventlistAPI.js"></script>
