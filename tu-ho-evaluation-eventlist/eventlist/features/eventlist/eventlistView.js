@@ -123,10 +123,8 @@ class EventView {
   }
 
   cancelUpdateEvent() {
-    const inputFields = document.querySelectorAll(".update-input-field");
-    inputFields.forEach((field) => {
-      field.classList.toggle("hidden");
-    });
+    const updateField = document.getElementById("update-input-field");
+    updateField.classList.add("hidden");
 }
 
 }

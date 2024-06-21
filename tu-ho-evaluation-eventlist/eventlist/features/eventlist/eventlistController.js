@@ -106,6 +106,10 @@ class EventController {
     this.#view.addBtn.addEventListener("click", (e) => {
       e.preventDefault();
       this.#view.showInputFields();
+      // clear inputs
+      this.#view.eventNameInput.value = "";
+      this.#view.startDateInput.value = "";
+      this.#view.endDateInput.value = "";
     });
   }
 
@@ -121,19 +125,11 @@ class EventController {
     });
   }
 
-  // // cancel update Event
-  // setUpCancelUpdateEvent() {
-  //   this.#view.cancelUpdateBtn.addEventListener("click", (e) => {
-  //     e.preventDefault();
-  //     this.#view.cancelUpdateEvent();
-  //   });
-  // }
-
-    // cancel update Event
-    setUpCancelUpdateEvent() {
-      this.#view.cancelUpdateBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        this.#view.cancelUpdateEvent();
-      });
-    }
+  // cancel update Event
+  setUpCancelUpdateEvent() {
+    this.#view.cancelUpdateBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.#view.cancelUpdateEvent();
+    });
+  }
 }
