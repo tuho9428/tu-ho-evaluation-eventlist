@@ -36,10 +36,16 @@ class EventController {
   setUpAddEvent() {
     this.#view.saveBtn.addEventListener("click", (e) => {
       e.preventDefault();
+      // new add
+      if (!this.#view.inputValidation()) {
+        alert("Please fill in all the fields before adding an event.");
+        return;
+      }
+
       const newEvent = {
         eventName: this.#view.eventNameInput.value,
-        startDate:  new Date (this.#view.startDateInput.value),
-        endDate:  new Date (this.#view.endDateInput.value),
+        startDate: this.#view.startDateInput.value,
+        endDate: this.#view.endDateInput.value,
       };
 
       eventAPI.addEventAPI(newEvent).then((_newEvent) => {
@@ -65,7 +71,6 @@ class EventController {
   // edit
   setUpEditEvent() {
     this.#view.eventListTable.addEventListener("click", (e) => {
-      this.#view.showUpdateInputFields();
       if (e.target.classList.contains("event-list-item__edit")) {
         this.currentEventId = e.target.closest("tr").getAttribute("id");
         const eventItem = this.#model
@@ -73,32 +78,41 @@ class EventController {
           .find((event) => event.id === this.currentEventId);
 
         // Populate input fields with existing values
-
-        this.#view.eventNameUpdate.value = eventItem.eventName;
-        this.#view.startDateUpdate.value = eventItem.startDate;
-        this.#view.endDateUpdate.value = eventItem.endDate;
+        this.#view.showUpdateFieldsWithId(this.currentEventId, eventItem);
+        this.#view.showUpdateInputFields(this.currentEventId);
       }
     });
   }
 
   // do update
   setUpUpdateEvent() {
-    this.#view.updateBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      const eventId = this.currentEventId;
-      const updatedFields = {
-        eventName: this.#view.eventNameUpdate.value,
-        startDate: this.#view.startDateUpdate.value,
-        endDate: this.#view.endDateUpdate.value,
-      };
+    this.#view.eventListTable.addEventListener("click", (e) => {
+      if (e.target.classList.contains("update-btn")) {
+        const eventId = e.target.getAttribute("data-event-id");
+        if (!this.#view.updateValidation()) {
+          alert("Please fill in all the fields before adding an event.");
+          return;
+        }
+        const updatedFields = {
+          eventName: this.#view.eventNameUpdate.value,
+          startDate: this.#view.startDateUpdate.value,
+          endDate: this.#view.endDateUpdate.value,
+        };
 
-      eventAPI
-        .updateEventAPI(eventId, updatedFields)
-        .then((updatedEventItem) => {
-          this.#model.updateEvent(updatedEventItem);
-          this.#view.updateEventElements(eventId);
-        });
+        eventAPI
+          .updateEventAPI(eventId, updatedFields)
+          .then((updatedEventItem) => {
+            this.#model.updateEvent(updatedEventItem);
+            this.#view.updateDuration(eventId, updatedFields);
+            this.#view.updateEventElements(eventId);
+
+
+          });
+
+        this.#view.cancelUpdateEvent(eventId);
+      }
     });
+
   }
 
   // setUp Show Input Fields Event
@@ -127,9 +141,11 @@ class EventController {
 
   // cancel update Event
   setUpCancelUpdateEvent() {
-    this.#view.cancelUpdateBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      this.#view.cancelUpdateEvent();
+    this.#view.eventListTable.addEventListener("click", (e) => {
+      if (e.target.classList.contains("cancel-update-btn")) {
+        const eventId = e.target.getAttribute("data-event-id");
+        this.#view.cancelUpdateEvent(eventId);
+      }
     });
   }
 }

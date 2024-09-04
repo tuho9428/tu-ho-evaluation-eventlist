@@ -5,7 +5,7 @@
     --color-vermilion-red: #c94c4c;
     --color-blue: #008cba;
   }
-
+  /* var(--color-vermilion-red) */
   table {
     width: 100%;
     border-collapse: collapse;
@@ -18,19 +18,17 @@ th, td {
 }
 
 th {
-    background-color: var( --color-traffic-white);
+    background-color: #f2f2f2;
 }
 
 .btn {
     padding: 5px 10px;
     margin: 5px;
 }
-
 .btn-primary {
     background-color: var(--color-blue);
     color: white;
 }
-
 .btn-secondary {
     background-color: var(--color-vermilion-red);
     color: white;

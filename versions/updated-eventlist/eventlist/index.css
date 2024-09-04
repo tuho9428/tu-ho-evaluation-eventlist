@@ -18,19 +18,17 @@ th, td {
 }
 
 th {
-    background-color: var( --color-traffic-white);
+    background-color: var(--color-traffic-white);
 }
 
 .btn {
     padding: 5px 10px;
     margin: 5px;
 }
-
 .btn-primary {
     background-color: var(--color-blue);
     color: white;
 }
-
 .btn-secondary {
     background-color: var(--color-vermilion-red);
     color: white;
