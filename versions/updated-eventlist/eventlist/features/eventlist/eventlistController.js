@@ -103,9 +103,8 @@ class EventController {
           .updateEventAPI(eventId, updatedFields)
           .then((updatedEventItem) => {
             this.#model.updateEvent(updatedEventItem);
-            this.#view.updateDuration(eventId, updatedFields);
             this.#view.updateEventElements(eventId);
-
+            this.#view.updateDuration(eventId, updatedFields);
 
           });
 

@@ -12,7 +12,9 @@ class EventView {
     this.eventNameUpdate = document.getElementById(`update-event-name`);
     this.startDateUpdate = document.getElementById("update-start-date");
     this.endDateUpdate = document.getElementById("update-end-date");
-    this.durationUpdate = document.querySelector('.event-list-item__duration')
+    this.durationDate = document.getElementById("update-duration");
+
+    this.durationCell = document.querySelector('.event-list-item__duration')
 
     // Btn
     this.addBtn = document.getElementById("add-btn");
@@ -47,7 +49,11 @@ class EventView {
     const durationCell = document.createElement("td");
     durationCell.classList.add("event-list-item__duration");
 
-    durationCell.textContent = (new Date(endDate).getTime() - new Date(startDate).getTime())/ (1000*3600*24);
+
+    const durationDays = (new Date(endDate).getTime() - new Date(startDate).getTime())/ (1000*3600*24);
+    const durationPeriod = durationDays >= 0 ? durationDays : 0;
+
+    durationCell.textContent = durationPeriod;
 
     const actionCell = document.createElement("td");
 
@@ -147,7 +153,6 @@ class EventView {
       ".event-list-item__start-date"
     );
     const eventEndDate = eventItem.querySelector(".event-list-item__end-date");
-    const durarion = eventItem.querySelector(".event-list-item__durarion");
 
     // Update eventName if input is not empty
     if (this.eventNameUpdate.value.trim() !== "") {
@@ -261,13 +266,17 @@ class EventView {
     const startDateValue = new Date(startDate);
     const endDateValue = new Date(endDate);
     const durationDays = (endDateValue - startDateValue) / (1000 * 3600 * 24);
+    console.log("durationDays",durationDays);
+    const durationPeriod = durationDays >= 0 ? durationDays : 0;
+    console.log("durationPeriod",durationPeriod);
+
 
     const eventItem = document.getElementById(eventId);
-    const durarion = eventItem.querySelector(".event-list-item__duration");
+    const duration = eventItem.querySelector(".event-list-item__duration");
 
     // Update the duration display with calculated days
-    if (durarion) {
-      durarion.textContent = durationDays >= 0 ? durationDays : 0; // Ensure non-negative duration
+    if (duration) {
+      duration.textContent = durationPeriod; // Ensure non-negative duration
     }
   }
   
